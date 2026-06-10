@@ -1,0 +1,44 @@
+name: Publish Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers ONLY on version tags (e.g., v1.0.0, v1.0.1)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grants automated permission to write releases
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Checksums
+        run: |
+          sha256sum *qube.* > checksums.txt
+
+      - name: Create GitHub Release and Upload Binaries
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Qube ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            *-qube.tar.gz
+            *-qube.zip
+            checksums.txt
+          body: |
+            ## Qube Official Release
+
+             We are excited to announce the official release of Qube! This release includes precompiled binaries for Windows, macOS, and Linux, making it easier than ever to get started with Qube on your preferred platform.
+
+             ### What's New
+             - Precompiled binaries for all major platforms
+             - Updated documentation and installation instructions
+            
+            ### Installation
+            Verify binary integrity using the `checksums.txt` file.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
