@@ -1,5 +1,7 @@
 # Qube
 
+![No Docker? No problem, use Qube!](img/Qube00001png.png)
+
 Qube is a pure‑Rust tool that runs Docker images as QEMU virtual machines. It works on macOS, Linux, WSL2, and Android (Termux) without requiring a Docker daemon. Qube pulls a Docker image, extracts a root filesystem, and boots it in QEMU with options tailored to your host.
 
 ## Quick Start
