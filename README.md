@@ -4,7 +4,7 @@
 
 Qube is a pure‑Rust tool that runs Docker images as QEMU virtual machines. It works on Windows, macOS, Linux, WSL2, and Android (Termux) without requiring a Docker daemon. Qube pulls a Docker image, extracts a root filesystem, and boots it in QEMU with options tailored to your host.
 
-## Quick Start
+## Intro
 
 - You just need Qemu and qube binary, thats it. you have a VM, that runs as a process on your host.
 - Qubes with simple defaults that run: 1 CPU + 1G RAM + 8G Drive
