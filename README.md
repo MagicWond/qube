@@ -1,10 +1,8 @@
 # Qube
 
-![No Docker? No problem, use Qube!](img/Qube00001png.png)
+Qube is a pure‑Rust tool that runs Docker images as QEMU virtual machines. It works on macOS, Linux, WSL2, and Android (Termux) without requiring a Docker daemon. Qube pulls a Docker image, extracts a root filesystem, and boots it in QEMU with options tailored to your host.
 
-Qube is a pure‑Rust tool that runs Docker images as QEMU virtual machines. It works on Windows, macOS, Linux, WSL2, and Android (Termux) without requiring a Docker daemon. Qube pulls a Docker image, extracts a root filesystem, and boots it in QEMU with options tailored to your host.
-
-## Intro
+## Quick Start
 
 - You just need Qemu and qube binary, thats it. you have a VM, that runs as a process on your host.
 - Qubes with simple defaults that run: 1 CPU + 1G RAM + 8G Drive
@@ -42,10 +40,10 @@ hint: first setup always takes longer (8G disk partitioning and checks), then qu
 - Commands to exec inside a VM, attach via SSH, view logs, list containers and images, stop/start/restart containers, and remove containers or images.
 
 ## Known Issues
-- When running QEMU on Windows (WSL2) using terminal (qemu serial), characters may be displayed as pink, we have implemented a clear-text to white, during Vm qube-init, to avoid this use the gui video mode by running `qube run <image> -vga` or `qube run <image> --vga`, then you setup your sshd and connect via ssh. After qube starts, init runs a fix reset the terminal color back to white.
-- Qube ps still needs to be better developped to show real VM states, for now its not working properly, it will show up but it just shows stopped or running once the PID is saved, which will only occus when starting our Qubes in mode: -d/--detach .
+- When running QEMU on Windows (WSL2) using terminal (qemu serial), all characters are displayed as pink, to avoid this use the gui video mode by running `qube run <image> -vga` or `qube run <image> --vga`, then you setup your sshd and connect via ssh. After qube starts, init runs a fix reset the terminal color back to white.
+- Qube ps still needs to be better developped to show real VM states, for now its not working propperly, it will show up but it just shows stopped or running once the PID is saved, which only occurs when starting Qubes in -d/--detach mode.
 - Qube exec still needs to be implemented, for now its not working, the idea is to use the same mechanism as 'docker exec' to execute a command inside the VM.
-- Qube attach uses qemu socket file, which means that we need to start Qube in -d/--detach mode to be able to attach to it later.
+- Qube attach uses qemu socket file, which means that we need to start Qube in -d/--detach mode to be able to attach to it laters.
 
 ## 🚀 Upcoming Features (Roadmap)
 
