@@ -35,8 +35,7 @@ jobs:
              We are excited to announce the official release of Qube! This release includes precompiled binaries for Windows, macOS, and Linux, making it easier than ever to get started with Qube on your preferred platform.
 
              ### What's New
-             - Precompiled binaries for all major platforms
-             - Updated documentation and installation instructions
+             - Fixed container portability issues, we can now zip our Qubes and run them anywhere.
             
             ### Installation
             Verify binary integrity using the `checksums.txt` file.
