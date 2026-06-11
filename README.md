@@ -107,18 +107,15 @@ qube run nginx:latest -p 2223:22 -p 8080:80 # if you need to change the 2222:22 
 #        etc... until 2229:22
 ```
 
-# Alpine needs iso installer, therefore needs to be setup
+# Alpine
 ```bash
-setup-alpine
-# (follow the setup instructions to setup networking, install ssh server, format the disk, etc...)
-
 # to poweroff run:
 poweroff
 ```
 
 # Nginx
 ```bash
-/etc/init.d/nginx start
+/etc/init.d/nginx start (not needed! its now automatically started by qube-init)
 # to poweroff run:
 poweroff -f
 ```
